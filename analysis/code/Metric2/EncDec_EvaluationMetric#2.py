@@ -6,13 +6,13 @@ import plotly.graph_objects as go
 file_paths = [
    ('input_files/EncDec/EncDec_baseline_Dataset_AllScore_withGold.csv', 'Baseline'),
     ('input_files/EncDec/EncDec_Bart_Dataset_AllScore_withGold.csv', 'BART'),
-    ('input_files/EncDec/EncDec_Bert_Dataset_AllScore_withGold.csv', 'BERT'),
+    ('input_files/EncDec/EncDec_Bert_Dataset_AllScore_withGold.csv', 'BERTScore_Art'),
     ('input_files/EncDec/EncDec_Dae_Dataset_AllScore_withGold.csv','DAE'),
     ('input_files/EncDec/EncDec_merged_Dataset_AllScore_withGold.csv','Merged'),
 ]
 
 # Define the categories and groups
-categories = ['BART_Score', 'BERT_Score', 'DAE_Score']
+categories = ['BART_Score', 'BERTScore_Art', 'DAE_Score']
 groups = ['pred', 'gold']
 
 # Create a list to store the figures
@@ -32,14 +32,14 @@ for file_path, label in file_paths:
             if group == 'pred':
                 if category == 'BART_Score':
                     column_name = 'bart_score_pred'
-                elif category == 'BERT_Score':
+                elif category == 'BERTScore_Art':
                     column_name = 'bert_score_precision_pred_with_brevity_penalty'
                 else:  # DAE_Score
                     column_name = 'dae_score_pred'
             else:  # group == 'gold'
                 if category == 'BART_Score':
                     column_name = 'bart_score_gold'
-                elif category == 'BERT_Score':
+                elif category == 'BERTScore_Art':
                     column_name = 'bert_precision_gold_with_brevity_penalty'
                 else:  # DAE_Score
                     column_name = 'dae_score_gold'
@@ -51,7 +51,7 @@ for file_path, label in file_paths:
             #print(df['bart_score_pred'].count, df['bert_score_precision_pred_with_brevity_penalty'].count)
             num_higher_values = (df['bart_score_pred'] > df['bart_score_gold']).sum()
             #print(f"{category}: {num_higher_values}")
-        elif category == 'BERT_Score':
+        elif category == 'BERTScore_Art':
             #print(df['bart_score_pred'].count, df['bert_score_precision_pred_with_brevity_penalty'].count)
             num_higher_values = (df['bert_score_precision_pred_with_brevity_penalty'] > df['bert_precision_gold_with_brevity_penalty']).sum()
             #print(f"{category}: {num_higher_values}")
@@ -76,10 +76,15 @@ for file_path, label in file_paths:
     
     # Set the layout
     fig2.update_layout(
-        title=f'Pegasus Evaluation Metric #2 - {label}',
         xaxis_title='Metrics',
         yaxis_title='Average Performance',
-        barmode='stack'
+        barmode='stack',
+        legend = dict(
+        orientation = 'h',
+        yanchor = 'bottom',
+        y=1.02,
+        xanchor = 'right',
+        x=1)
     )
 
     # Create a Bar chart figure
@@ -97,10 +102,16 @@ for file_path, label in file_paths:
 
     # Set the layout
     fig.update_layout(
-        title=f'EncDec Evaluation Metric #2 - {label}',
-        xaxis_title='Categories',
+        xaxis_title='Metrics',
         yaxis_title='Average Performance',
-        barmode='group'
+        barmode='group',
+        legend = dict(
+        orientation = 'h',
+        yanchor = 'bottom',
+        y=1.02,
+        xanchor = 'right',
+        x=1
+    )
     )
 
     # Add the figure to the list

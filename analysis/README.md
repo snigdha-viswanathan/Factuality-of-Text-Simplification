@@ -1,3 +1,38 @@
+#Comprehensive Folder structure
+```
+analysis
+ ┣ code
+ ┃ ┣ Metric1
+ ┃ ┃ ┣ Enc_Dec_EvaluationMetric#1.py
+ ┃ ┃ ┣ Pegasus_EvaluationMetric#1.py
+ ┃ ┃ ┗ T5_EvaluationMetric#1.py
+ ┃ ┣ Metric2
+ ┃ ┃ ┣ EncDec_EvaluationMetric#2.py
+ ┃ ┃ ┣ Pegasus_EvaluationMetric#2.py
+ ┃ ┃ ┗ T5_EvaluationMetric#2.py
+ ┃ ┣ Metric3
+ ┃ ┃ ┗ EvaluationMetric#3.py
+ ┃ ┗ .DS_Store
+ ┣ images
+ ┃ ┣ EncDec
+ ┃ ┃ ┣ Metric1
+ ┃ ┃ ┣ Metric2
+ ┃ ┣ Metric3
+ ┃ ┣ Pegasus
+ ┃ ┃ ┣ Metric1
+ ┃ ┃ ┣ Metric2
+ ┃ ┣ T5
+ ┃ ┃ ┣ Metric1
+ ┃ ┃ ┣ Metric2
+ ┣ input_files
+ ┃ ┣ EncDec
+ ┃ ┣ Metric3
+ ┃ ┣ Pegasus
+ ┃ ┣ T5
+ ┣ README.md
+ ┗ requirements.txt
+```
+
 To run the evaluation metrics code, follow the steps below:
 ## 1. Install dependencies
 

@@ -16,7 +16,7 @@ import plotly.graph_objects as go
 csv_files = [
     ('input_files/T5/T5_Baseline_AllScores_withGold.csv', 'Baseline'),
     ('input_files/T5/T5_Bart_AllScores_withGold.csv', 'BART'),
-    ('input_files/T5/T5_Bert_AllScores_withGold.csv', 'BERT'),
+    ('input_files/T5/T5_Bert_AllScores_withGold.csv', 'BERTScore_Art'),
     ('input_files/T5/T5_dae_AllScores_withGold.csv','DAE'),
     ('input_files/T5/T5_Merged_AllScores_withGold.csv','Merged'),
 ]
@@ -38,22 +38,22 @@ for csv_file, label in csv_files:
     group2.append(df['bert_score_precision_pred_with_brevity_penalty'].mean())
     group3.append(df['dae_score_pred'].mean())
 
-group1_rounded = [round(value, 2) for value in group1]
-group2_rounded = [round(value, 2) for value in group2]
-group3_rounded = [round(value, 2) for value in group3]
+group1_rounded = [round(value, 3) for value in group1]
+group2_rounded = [round(value, 3) for value in group2]
+group3_rounded = [round(value, 3) for value in group3]
 
 colors = ['royalblue', 'salmon', 'teal']
 
 # Create a Bar chart figure
 fig = go.Figure(data=[
     go.Bar(name='Bart Score', x=categories, y=group1, text=group1_rounded, textposition='outside', marker=dict(color=colors[0])),
-    go.Bar(name='Bert Score', x=categories, y=group2, text=group2_rounded, textposition='outside', marker=dict(color=colors[1])),
+    go.Bar(name='BertScore_Art', x=categories, y=group2, text=group2_rounded, textposition='outside', marker=dict(color=colors[1])),
     go.Bar(name='DAE Score', x=categories, y=group3, text=group3_rounded, textposition='outside', marker=dict(color=colors[2]))
 ])
 
 # Set the layout
 fig.update_layout(
-    xaxis_title='Models',
+    xaxis_title='Datasets used for training',
     yaxis_title='Average Performance',
     barmode='group',
     legend = dict(

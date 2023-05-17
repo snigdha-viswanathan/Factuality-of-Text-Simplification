@@ -6,13 +6,13 @@ import plotly.graph_objects as go
 file_paths = [
   ('input_files/T5/T5_Baseline_AllScores_withGold.csv', 'Baseline'),
     ('input_files/T5/T5_Bart_AllScores_withGold.csv', 'BART'),
-    ('input_files/T5/T5_Bert_AllScores_withGold.csv', 'BERT'),
+    ('input_files/T5/T5_Bert_AllScores_withGold.csv', 'BERTScore_Art'),
     ('input_files/T5/T5_dae_AllScores_withGold.csv','DAE'),
     ('input_files/T5/T5_Merged_AllScores_withGold.csv','Merged'),
 ]
 
 # Define the categories and groups
-categories = ['BART_Score', 'BERT_Score', 'DAE_Score']
+categories = ['BART_Score', 'BERTScore_Art', 'DAE_Score']
 groups = ['pred', 'gold']
 
 # Create a list to store the figures
@@ -32,14 +32,14 @@ for file_path, label in file_paths:
             if group == 'pred':
                 if category == 'BART_Score':
                     column_name = 'bart_score_pred'
-                elif category == 'BERT_Score':
+                elif category == 'BERTScore_Art':
                     column_name = 'bert_score_precision_pred_with_brevity_penalty'
                 else:  # DAE_Score
                     column_name = 'dae_score_pred'
             else:  # group == 'gold'
                 if category == 'BART_Score':
                     column_name = 'bart_score_gold'
-                elif category == 'BERT_Score':
+                elif category == 'BERTScore_Art':
                     column_name = 'bert_score_precision_gold_with_brevity_penalty'
                 else:  # DAE_Score
                     column_name = 'dae_score_gold'
@@ -51,7 +51,7 @@ for file_path, label in file_paths:
             #print(df['bart_score_pred'].count, df['bert_score_precision_pred_with_brevity_penalty'].count)
             num_higher_values = (df['bart_score_pred'] > df['bart_score_gold']).sum()
             #print(f"{category}: {num_higher_values}")
-        elif category == 'BERT_Score':
+        elif category == 'BERTScore_Art':
             #print(df['bart_score_pred'].count, df['bert_score_precision_pred_with_brevity_penalty'].count)
             num_higher_values = (df['bert_score_precision_pred_with_brevity_penalty'] > df['bert_score_precision_gold_with_brevity_penalty']).sum()
             #print(f"{category}: {num_higher_values}")

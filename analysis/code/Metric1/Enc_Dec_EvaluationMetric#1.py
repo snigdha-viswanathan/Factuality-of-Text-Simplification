@@ -16,7 +16,7 @@ import plotly.graph_objects as go
 csv_files = [
     ('input_files/EncDec/EncDec_baseline_Dataset_AllScore_withGold.csv', 'Baseline'),
     ('input_files/EncDec/EncDec_Bart_Dataset_AllScore_withGold.csv', 'BART'),
-    ('input_files/EncDec/EncDec_Bert_Dataset_AllScore_withGold.csv', 'BERT'),
+    ('input_files/EncDec/EncDec_Bert_Dataset_AllScore_withGold.csv', 'BERTScore_Art'),
     ('input_files/EncDec/EncDec_Dae_Dataset_AllScore_withGold.csv','DAE'),
     ('input_files/EncDec/EncDec_merged_Dataset_AllScore_withGold.csv','Merged'),
 ]
@@ -46,13 +46,13 @@ colors = ['royalblue', 'salmon', 'teal']
 # Create a Bar chart figure
 fig = go.Figure(data=[
     go.Bar(name='Bart Score', x=categories, y=group1, text=group1_rounded, textposition='outside', marker=dict(color=colors[0])),
-    go.Bar(name='Bert Score', x=categories, y=group2, text=group2_rounded, textposition='outside', marker=dict(color=colors[1])),
+    go.Bar(name='BERTScore_Art', x=categories, y=group2, text=group2_rounded, textposition='outside', marker=dict(color=colors[1])),
     go.Bar(name='DAE Score', x=categories, y=group3, text=group3_rounded, textposition='outside', marker=dict(color=colors[2]))
 ])
 
 # Set the layout
 fig.update_layout(
-    xaxis_title='Models',
+    xaxis_title='Datasets used for training',
     yaxis_title='Average Performance',
     barmode='group',
     legend = dict(
