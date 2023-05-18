@@ -4,9 +4,10 @@ In this project, we have proposed a novel methodology that combines factual cons
 
 Install the required packages given in requirements.txt.
 
-We will be using the Wiki Large Dataset which is the benchmark dataset used for text simplification tasks.[WikiLarge Dataset](https://github.com/louismartin/dress-data/raw/master/data-simplification.tar.bz2)
+We will be using the Wiki Large Dataset which is the benchmark dataset used for text simplification tasks - [WikiLarge Dataset](https://github.com/louismartin/dress-data/raw/master/data-simplification.tar.bz2)
 
-The final training datasets are given in the path: datasets/final_training_data
+The final training datasets are given in the path: datasets/final_training_data.
+
 The test dataset is given in the path: datasets/test_data
 
 Our pipeline is given as follows:
@@ -113,7 +114,7 @@ streamlit run analysis/code/Metric2/Pegasus_EvaluationMetric#2.py
 
 ## Folder Structure
  <pre>
- ┣ analysis
+ ┣ <b>analysis
  ┃ ┣ <b>code - This directory contains the code files to generate the graphs for all the three metrics, for each model
  ┃ ┣ <b>images - This directory contains the images generated for each metric
  ┃ ┣ <b>input_files - This directory contains of the input files for the analysis section
@@ -127,6 +128,5 @@ streamlit run analysis/code/Metric2/Pegasus_EvaluationMetric#2.py
  ┃ ┃ ┣ <b>BERT_score -This folder consists of training data, along with the code folder consisting of the BERT score and the corresponding output files.
  ┃ ┃ ┗ <b>DAE_score -This folder consists of training data, along with the code folder consisting of the DAE score and the corresponding output files.
  ┣ <b>models - This directory consists a folder for each model. For each model, it consists of an evaluation - which has the evaluation code and scores for each metric, inference - which has the inference outputs and training folder- which has the training code.
- s
 
 </pre>
