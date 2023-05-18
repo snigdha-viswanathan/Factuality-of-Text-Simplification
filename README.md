@@ -1,4 +1,4 @@
-# factuality_of_text_simplification
+# Factuality of Text Simplification
 
 In this project, we have proposed a novel methodology that combines factual consistency with text simplification. By integrating these two components, we can identify and remove the problematic instances present in text simplification dataset while ensuring the integrity of the original information.
 
@@ -113,20 +113,20 @@ streamlit run analysis/code/Metric2/Pegasus_EvaluationMetric#2.py
 ```
 
 ## Folder Structure
- <pre>
- ┣ <b>analysis
- ┃ ┣ <b>code - This directory contains the code files to generate the graphs for all the three metrics, for each model
- ┃ ┣ <b>images - This directory contains the images generated for each metric
- ┃ ┣ <b>input_files - This directory contains of the input files for the analysis section
- ┃ ┣ <b>manual evaluation - This directory contains the annotated csv files for the manual evaluation section
+```
+ ┣ analysis
+ ┃ ┣ code - This directory contains the code files to generate the graphs for all the three metrics, for each model
+ ┃ ┣ images - This directory contains the images generated for each metric
+ ┃ ┣ input_files - This directory contains of the input files for the analysis section
+ ┃ ┣ manual evaluation - This directory contains the annotated csv files for the manual evaluation section
  ┣ datasets
- ┃ ┣ <b>final_training_data - This directory consists of the baseline and factual dataset
- ┃ ┗ <b>test_data - This directory consists of the test data
+ ┃ ┣ final_training_data - This directory consists of the baseline and factual dataset
+ ┃ ┗ test_data - This directory consists of the test data
  ┣ factuality_checking
- ┃ ┣ <b>dataset_selection - In this directory we use all three metrics to score and rank the dataset sampled from wiki large
- ┃ ┃ ┣ <b>BART_score - This folder consists of training data, along with the code folder consisting of the BART score and the corresponding output files.
- ┃ ┃ ┣ <b>BERT_score -This folder consists of training data, along with the code folder consisting of the BERT score and the corresponding output files.
- ┃ ┃ ┗ <b>DAE_score -This folder consists of training data, along with the code folder consisting of the DAE score and the corresponding output files.
- ┣ <b>models - This directory consists a folder for each model. For each model, it consists of an evaluation - which has the evaluation code and scores for each metric, inference - which has the inference outputs and training folder- which has the training code.
+ ┃ ┣ dataset_selection - In this directory we use all three metrics to score and rank the dataset sampled from wiki large
+ ┃ ┃ ┣ BART_score - This folder consists of training data, along with the code folder consisting of the BART score and the corresponding output files.
+ ┃ ┃ ┣ BERT_score -This folder consists of training data, along with the code folder consisting of the BERT score and the corresponding output files.
+ ┃ ┃ ┗ DAE_score -This folder consists of training data, along with the code folder consisting of the DAE score and the corresponding output files.
+ ┣ models - This directory consists a folder for each model. For each model, it consists of an evaluation - which has the evaluation code and scores for each metric, inference - which has the inference outputs and training folder- which has the training code.
 
-</pre>
+```
