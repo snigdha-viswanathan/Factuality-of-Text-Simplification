@@ -270,6 +270,7 @@ def main():
     df['simplified_sentence']=simplified_sentence
     df['dae_score_pred']=all_scores
 
+# edit path accordingly
     df.to_csv('./resources/pegasus_baseline_dataset_dae_pred.csv')
 
     # error_df['source_sentence']=error_source
